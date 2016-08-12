@@ -843,7 +843,7 @@ def dfw_rule_create(client_session, vccontent,
     :param rule_source_value: DFW rule Source.
                                 If rule_source_type = Ipv4Address, enter "any" or "IP/subnet".
                                 If rule_source_type != Ipv4Address and rule_source_name empty, enter Object Id
-                                (default = "any")
+                                (default = "any") (List of supported options: VirtualWire, Ipv4Address)
     :param rule_source_name: If rule_source_type != Ipv4Address, enter Object name (default = empty)
     :param rule_source_excluded: To deny the DFW rule Source (default: "false")
     :param rule_destination_type: DFW Destination Type (default = Ipv4Address) (list of values below)
@@ -862,7 +862,7 @@ def dfw_rule_create(client_session, vccontent,
     :param rule_direction: DFW Direction (default: inout)
     :param rule_pktype: DFW PacketType (default: any)
     :param rule_applyto_type: DFW Apply To Type (default = DISTRIBUTED_FIREWALL)
-                                List of options of "rule_applyto_type": Edge, VirtualWire, DISTRIBUTED_FIREWALL
+                                (List of supported options: Edge, VirtualWire(LS), DISTRIBUTED_FIREWALL)
     :param rule_applyto_name: When rule_applyto_type != than dfw, enter object name
                                 (default = empty) (optional between rule_applyto_id and rule_applyto_name)
     :param rule_applyto_id: When rule_applyto_type != than dfw and rule_applyto_id empty, specify Object ID \
@@ -872,9 +872,6 @@ def dfw_rule_create(client_session, vccontent,
     :param rule_logged: DFW rule logging (default: false)
     :param rule_note: DFW rule note (default: empty)
     :param rule_tag: DFW rule tag (default: empty)
-
-    List of options of "rule_source_type" + "rule_destination_type":
-                VirtualWire, Ipv4Address.
 
 
     :return: returns a tuple, the first item is the rule ID in NSX as string, the second is string
